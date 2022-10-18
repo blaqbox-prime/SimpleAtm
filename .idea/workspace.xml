@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bb352c5-ae0d-45f5-91dd-1aba593e8a62" name="Changes" comment="" />
+    <list default="true" id="6bb352c5-ae0d-45f5-91dd-1aba593e8a62" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Accounts.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AESCrypto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/Pin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/Security.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/Services.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/utils/CryptoUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/utils/FileHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statements/436247625-savings.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statements/890418985-cheque.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statements/890418985-savings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/simpleatm/atm/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/ATM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/simpleatm/atm/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/simpleatm/atm/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/simpleatm/atm/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/simpleatm/atm/exceptions/InsufficientFundsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/exceptions/InsufficientFundsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/simpleatm/atm/exceptions/NegativeAmountException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/simpleatm/atm/exceptions/NegativeAmountException.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2EfxBREojiGlBYWQqEEvVOhwxnc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,5 +77,23 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
