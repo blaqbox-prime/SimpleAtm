@@ -1,9 +1,9 @@
 package com.simpleatm.atm;
 
-import java.io.IOException;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 public class Transaction {
 //    TODO: Common transaction Properties

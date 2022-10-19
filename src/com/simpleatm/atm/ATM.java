@@ -1,17 +1,12 @@
 package com.simpleatm.atm;
 
-import java.io.IOException;
-import java.text.NumberFormat;
-import java.util.InputMismatchException;
-import java.util.Locale;
-import java.util.Scanner;
+
 
 
 public class ATM {
 
 
-    public static void main(String[] args) throws java.io.IOException {
-//        Login Tries Available
+    public static void main(String[] args) {
 
 //        Opening Banner
         System.out.println("------------------------------------");

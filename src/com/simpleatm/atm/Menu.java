@@ -9,7 +9,7 @@ import java.util.*;
 public class Menu {
     static Account loggedInAccount;
 
-    static HashMap<Integer,Account> accountsList = Services.loadRegisteredAccounts();
+    static HashMap<Integer,Account> accountsList;
 
     static Scanner sc = new Scanner(System.in);
 
@@ -22,22 +22,20 @@ public class Menu {
             BufferedWriter bw = new BufferedWriter(fw)
         ){
             //build comma separated string
-            StringBuffer stringBuffer = new StringBuffer("");
-            Iterator it = accountsList.entrySet().iterator();
-            while(it.hasNext()){
-                Map.Entry pair = (Map.Entry) it.next();
-                Account acc = (Account) pair.getValue();
+            StringBuilder stringBuffer = new StringBuilder();
+            for (Map.Entry<Integer, Account> integerAccountEntry : accountsList.entrySet()) {
+                Account acc = integerAccountEntry.getValue();
                 stringBuffer.append(acc.toString()).append(",").append(acc.getPin()).append('\n');
                 bw.write(stringBuffer.toString());
             }
-
         }catch(IOException e){
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }catch(Exception e){
             System.out.println("Failed to save changes.");
         }
     }
     static void login() {
+        accountsList = Services.loadRegisteredAccounts();
         boolean end = false;
         int inputAccNum;
         int inputPin;
@@ -51,10 +49,8 @@ public class Menu {
             inputPin = sc.nextInt();
             System.out.println();
 
-            Iterator it = accountsList.entrySet().iterator();
-            while(it.hasNext()){
-                Map.Entry pair = (Map.Entry) it.next();
-                Account acc = (Account) pair.getValue();
+            for (Map.Entry<Integer, Account> integerAccountEntry : accountsList.entrySet()) {
+                Account acc = (Account) ((Map.Entry<?, ?>) integerAccountEntry).getValue();
                 if (accountsList.containsKey(inputAccNum) && inputPin == acc.getPin()) {
                     loggedInAccount = acc;
                     accountSelectMenu();
@@ -90,6 +86,7 @@ public class Menu {
                 case 3 -> end = true;
             }
         }while(!end);
+        saveChanges();
 
     }
 
@@ -99,7 +96,7 @@ public class Menu {
             System.out.println("------------------------------");
             System.out.println("Savings Account");
             System.out.println("------------------------------");
-            System.out.println("");
+            System.out.println();
 
             System.out.println("\t1. Balance");
             System.out.println("\t2. Deposit");
@@ -130,7 +127,7 @@ public class Menu {
             System.out.println("------------------------------");
             System.out.println("Cheque account");
             System.out.println("------------------------------");
-            System.out.println("");
+            System.out.println();
 
             System.out.println("\t1. Balance");
             System.out.println("\t2. Deposit");
@@ -177,48 +174,67 @@ public class Menu {
                     createAccount();
                     return;
                 }
-                case 3 -> {
-                    end = true;
-                }
+                case 3 -> end = true;
             }
         }while(!end);
     }
 
     static void createAccount(){
         int accNum = Services.generateNewAccountNum();
-        int pin;
+        int pin = 12502;
         double initialSavings = 0.0;
         double initialCheque = 0.0;
 
-        boolean end = false;
 
         System.out.println("------------------------------");
         System.out.println("Create new account");
         System.out.println("------------------------------");
         System.out.println("\t Your Account Number is: " + accNum);
 
+        boolean validPin = false, validSavingsDep = false, validChequeDep = false;
+
         do {
-            try {
+            // get pin
+            try{
                 System.out.print("Create new pin: ");
                 pin = sc.nextInt();
                 System.out.println();
+                validPin = true;
+            }catch (Exception e){
+                System.out.println("Pin must be digits only");
+                sc.nextLine();
+            }
+        }while(!validPin);
+
+        // get initial savings deposit
+        do {
+            try {
                 System.out.print("Enter initial savings deposit: ");
                 initialSavings = sc.nextDouble();
                 System.out.println();
+                validSavingsDep = true;
+            }catch (Exception e){
+                System.out.println("Invalid input: Separate decimals by a comma.");
+                sc.nextLine();
+            }
+        }while(!validSavingsDep);
+
+        //get initial Cheque deposit
+        do {
+            try {
                 System.out.print("Enter initial checking deposit: ");
                 initialCheque = sc.nextDouble();
-
-                Account newAcc = new Account(accNum,pin,initialSavings,initialCheque);
-                Services.recordNewAccount(newAcc);
-                accountsList = Services.loadRegisteredAccounts();
-
-                end = true;
-
-            }catch (InputMismatchException e){
-                System.out.println("Invalid Input! Only numbers allowed");
-                end = true;
+                validChequeDep = true;
+            }catch (Exception e){
+                System.out.println("Invalid input: Separate decimals by a comma.");
+                sc.nextLine();
             }
-        }while (!end);
+        }while(!validChequeDep);
+
+        //create Account
+
+        Account newAcc = new Account(accNum,pin,initialSavings,initialCheque);
+        Services.recordNewAccount(newAcc);
 
         System.out.println("----- Redirecting to Login ------");
         login();
